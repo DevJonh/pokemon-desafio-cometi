@@ -15,6 +15,12 @@ export const Container = styled.div`
       color: #535662;
       font-size: 0.75rem;
     }
+    h3 {
+      font-size: 1.3rem;
+      line-height: 1.9rem;
+      color: #535662;
+      font-weight: 500;
+    }
   }
 
   select {

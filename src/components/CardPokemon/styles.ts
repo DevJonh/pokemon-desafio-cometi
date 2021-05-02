@@ -4,9 +4,20 @@ interface IStylesProps {
   gallery: boolean;
 }
 
+export const Container = styled.section`
+  position: relative;
+  border-radius: 3px;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 3.75rem;
+  justify-content: center;
+`;
+
 export const ContainerImage = styled.div`
   position: relative;
-  width: max-content;
+  width: 14rem;
   height: 12.6rem;
   border-radius: 3px;
   background-color: #b4adbe;
@@ -19,6 +30,7 @@ export const ContainerImage = styled.div`
 
   img {
     max-width: 100%;
+    width: 75%;
   }
 
   p {
@@ -40,8 +52,12 @@ export const ContainerImage = styled.div`
 
     bottom: -1.3rem;
     left: 3rem;
-    &::first-letter {
-      text-transform: uppercase;
+  }
+
+  &:hover {
+    div {
+      opacity: 1;
+      visibility: visible;
     }
   }
 `;
@@ -77,11 +93,13 @@ export const Type = styled.span<IStylesProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3.25rem;
+
+  max-width: 100%;
+  width: 4rem;
   height: 1.5rem;
   background-color: #f25d52;
   text-align: center;
-  padding: 6px auto;
+  padding: 6px 0.5rem;
   border: 1px solid #000;
   border-radius: 3px;
   font-size: 0.9rem;
@@ -89,10 +107,6 @@ export const Type = styled.span<IStylesProps>`
   position: absolute;
   top: -0.9rem;
   right: 2rem;
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
 
   ${({ gallery }) =>
     gallery &&
@@ -102,4 +116,49 @@ export const Type = styled.span<IStylesProps>`
       right: 6rem;
       z-index: 3;
     `}
+`;
+
+export const Details = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.24);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s linear;
+
+  visibility: hidden;
+  opacity: 0;
+
+  button {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:nth-child(1) {
+      transition: 0.4s;
+      background-color: #49dbdf;
+    }
+    &:nth-child(2) {
+      transition: 0.4s;
+      background-color: #3aa05b;
+    }
+
+    & + button {
+      margin-left: 1.5rem;
+    }
+
+    &:nth-child(1):hover {
+      background-color: #1fb7bb;
+    }
+    &:nth-child(2):hover {
+      background-color: #18903f;
+    }
+  }
 `;

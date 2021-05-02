@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const ContainerImage = styled.div`
   position: relative;
   max-width: 100%;
-  width: max-content;
+  width: 100%;
   height: 12.6rem;
   border-radius: 3px;
   background-color: #b4adbe;
@@ -28,6 +28,7 @@ export const ContainerImage = styled.div`
 
   img {
     max-width: 100%;
+    width: 75%;
   }
 
   p {
@@ -51,6 +52,13 @@ export const ContainerImage = styled.div`
     left: 12%;
     &::first-letter {
       text-transform: uppercase;
+    }
+  }
+
+  &:hover {
+    div {
+      opacity: 1;
+      visibility: visible;
     }
   }
 `;
@@ -80,7 +88,9 @@ export const Type = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3.25rem;
+
+  max-width: max-content;
+  width: 3.7rem;
   height: 1.5rem;
   background-color: #f25d52;
   text-align: center;
@@ -113,5 +123,59 @@ export const Icon = styled.button`
   transition: 0.5s;
   &:hover {
     filter: brightness(85%);
+  }
+
+  &:disabled {
+    background-color: #999;
+    border: none;
+    cursor: initial;
+    &:hover {
+      filter: brightness(100%);
+    }
+  }
+`;
+
+export const Details = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.24);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s linear;
+
+  visibility: hidden;
+  opacity: 0;
+
+  button {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:nth-child(1) {
+      transition: 0.4s;
+      background-color: #49dbdf;
+    }
+    &:nth-child(2) {
+      transition: 0.4s;
+      background-color: #3aa05b;
+    }
+
+    & + button {
+      margin-left: 1.5rem;
+    }
+
+    &:nth-child(1):hover {
+      background-color: #1fb7bb;
+    }
+    &:nth-child(2):hover {
+      background-color: #18903f;
+    }
   }
 `;
