@@ -1,10 +1,20 @@
 import { MdAdd, MdVisibility } from "react-icons/md";
+import { useAuth } from "../../store/useAuth";
 import { usePokemon } from "../../store/usePokemon";
 import Pagination from "../Pagination";
 import * as Styles from "./styles";
 
 const CardPokemon = () => {
   const { Pokemons, search, pokemonsSearch, setPokemonDetails } = usePokemon();
+  const { userLogged, AddPokemon } = useAuth();
+
+  const addPokemon = (id: number) => {
+    if (!userLogged) {
+      alert("Realize um Login para adicionar um Pokémon! ;)");
+    } else {
+      AddPokemon(Pokemons, id);
+    }
+  };
 
   return (
     <Styles.Container>
@@ -14,7 +24,7 @@ const CardPokemon = () => {
             <button onClick={() => setPokemonDetails(pokemonsSearch.id)}>
               <MdVisibility size={"1.5rem"} color={"#fff"} />
             </button>
-            <button>
+            <button onClick={() => addPokemon(pokemonsSearch.id)}>
               <MdAdd size={"1.5rem"} color={"#fff"} />
             </button>
           </Styles.Details>
@@ -44,7 +54,11 @@ const CardPokemon = () => {
                 <MdVisibility size={"1.5rem"} color={"#fff"} />
               </button>
               <button>
-                <MdAdd size={"1.5rem"} color={"#fff"} />
+                <MdAdd
+                  onClick={() => addPokemon(id)}
+                  size={"1.5rem"}
+                  color={"#fff"}
+                />
               </button>
             </Styles.Details>
             <img src={sprites.front_default} alt="" />

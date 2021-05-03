@@ -14,7 +14,7 @@ export const Container = styled.div<IContainerModalProps>`
   justify-content: center;
   align-items: center;
 
-  transition: opacity 0.3s linear;
+  transition: 0.3s;
 
   opacity: ${({ modal }) => (modal ? 1 : 0)};
   visibility: ${({ modal }) => (modal ? "visible" : "hidden")};

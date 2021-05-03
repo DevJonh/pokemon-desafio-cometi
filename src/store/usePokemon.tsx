@@ -52,7 +52,10 @@ const PokemonProvider: React.FC<any> = ({ children }) => {
     setSearchActual(n);
   };
   const setFilters = (filter: IResultPokemon[]) => {
-    setFilter(filter);
+    const filtered = filter.filter(
+      (fill) => fill.name !== "unknown" && fill.name !== "shadow"
+    );
+    setFilter(filtered);
   };
   const setPokemonPage = (pokemon: IResultPokemon[]) => {
     let dataTemp: IPokemon[] = [] as IPokemon[];
@@ -107,6 +110,7 @@ const PokemonProvider: React.FC<any> = ({ children }) => {
       types,
     } = data;
     setPokemonDetail({
+      id,
       abilities,
       height,
       weight,

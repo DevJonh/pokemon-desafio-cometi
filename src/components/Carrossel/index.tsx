@@ -8,10 +8,13 @@ import {
 import { usePokemon } from "../../store/usePokemon";
 import { useMemo, useState } from "react";
 import { paginationObject } from "../../utils/pagination";
+import { useAuth } from "../../store/useAuth";
 
 const Carrossel = () => {
   const [page, setPage] = useState(1);
   const { PokemonsGallery, setPokemonDetails } = usePokemon();
+
+  const { userLogged, AddPokemon } = useAuth();
 
   const itemsExibir = useMemo(() => {
     const { result, totalPage } = paginationObject(PokemonsGallery, page, 5);
@@ -21,6 +24,14 @@ const Carrossel = () => {
       totalPage,
     };
   }, [PokemonsGallery, page]);
+
+  const addPokemon = (id: number) => {
+    if (!userLogged) {
+      alert("Realize um Login para adicionar um Pokémon! ;)");
+    } else {
+      AddPokemon(PokemonsGallery, id);
+    }
+  };
 
   return (
     <>
@@ -37,7 +48,7 @@ const Carrossel = () => {
               <button onClick={() => setPokemonDetails(item.id)}>
                 <MdVisibility size={"1.5rem"} color={"#fff"} />
               </button>
-              <button>
+              <button onClick={() => addPokemon(item.id)}>
                 <MdAdd size={"1.5rem"} color={"#fff"} />
               </button>
             </Styles.Details>

@@ -27,6 +27,7 @@ export interface IResultPokemonType {
 }
 
 export interface IPokemonDetails {
+  id: number;
   name: string;
   height: number;
   weight: number;
@@ -41,4 +42,11 @@ export interface IPokemonDetails {
   sprites: {
     front_default: string;
   };
+}
+
+export interface IMyPokemons {
+  name: string;
+  idPokemon: number;
+  img: string;
+  type: string;
 }

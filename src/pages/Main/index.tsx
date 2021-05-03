@@ -19,6 +19,7 @@ import { usePokemon } from "../../store/usePokemon";
 import Carrossel from "../../components/Carrossel";
 import { pagination } from "../../utils/pagination";
 import ModalDetails from "../../components/ModalDetails";
+import Loading from "../../components/Loading";
 
 const Main = () => {
   const [pokemon, setPokemon] = useState<IResultPokemon[]>(
@@ -151,6 +152,7 @@ const Main = () => {
 
   return (
     <>
+      <Loading />
       <ModalDetails />
       <Header />
       <Styles.Content>

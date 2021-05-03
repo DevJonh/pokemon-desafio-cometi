@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: 95%;
   border-radius: 3px;
-  margin: 5rem auto 0;
+  margin: 5rem auto 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

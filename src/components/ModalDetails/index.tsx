@@ -1,13 +1,20 @@
 import { MdAdd, MdClear } from "react-icons/md";
+import { useAuth } from "../../store/useAuth";
 import { usePokemon } from "../../store/usePokemon";
 import Loading from "../Loading";
 import * as Styles from "./styles";
 
 const ModalDetails = () => {
   const { openModal, setModal, pokemonDetail } = usePokemon();
+  const { AddPokemon, userLogged } = useAuth();
 
-  if (pokemonDetail.name) {
-  }
+  const addPokemon = (id: number) => {
+    if (!userLogged) {
+      alert("Realize um Login para adicionar um Pokémon! ;)");
+    } else {
+      AddPokemon(pokemonDetail, id);
+    }
+  };
 
   return pokemonDetail.name ? (
     <Styles.Container modal={openModal}>
@@ -15,7 +22,7 @@ const ModalDetails = () => {
         <button onClick={() => setModal(false)} className="icon">
           <MdClear size={"1.5rem"} />
         </button>
-        <button className="icon2">
+        <button onClick={() => addPokemon(pokemonDetail.id)} className="icon2">
           <MdAdd size={"1.5rem"} />
         </button>
         <Styles.Header>
