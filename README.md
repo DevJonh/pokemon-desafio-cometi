@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://firebasestorage.googleapis.com/v0/b/pokemon-competi.appspot.com/o/ts.png?alt=media&token=1798cddc-620b-4231-affe-c66d0273d847" alt="Project logo"></a>
+</p>
+<h3 align="center">Pokemon-Competi</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/DevJonh/pokemon-desafio-competi?color=56BEB8">
 
-## Available Scripts
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/DevJonh/pokemon-desafio-competi?color=56BEB8">
 
-In the project directory, you can run:
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/DevJonh/pokemon-desafio-competi?color=56BEB8">
 
-### `yarn start`
+  <img alt="License" src="https://img.shields.io/github/license/DevJonh/pokemon-desafio-competi?color=56BEB8">
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
+  <a href="#requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#getting_started">Setting up a local environment</a> &#xa0; | &#xa0;
+  <a href="#tech_stack">Technology Stack</a> &#xa0;
+</p>
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="center"> Desafio concluido!
+    <br> 
+</p>
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://firebasestorage.googleapis.com/v0/b/pokemon-competi.appspot.com/o/2c24bf45-12bb-4a5c-9e76-b4adee7d8c08.jfif?alt=media&token=cdb64d7f-3a0a-419e-af41-293357187710" alt="Projeto Pokemon"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⛓️ Requirements <a name = "requirements"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Before starting, you will need to have [Git](https://git-scm.com), [Node](https://nodejs.org/en/) and optionally [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) installed on your machine
 
-### `yarn eject`
+## 🏁 Getting Started <a name = "getting_started"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After certifying that you already have the requirements, we can start configuring the project locally
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Clone este projeto
+$ git clone https://github.com/DevJonh/pokemon-desafio-competi.git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Acesse
+$ cd pokemon-desafio-competi
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Instalação das dependências
+$ yarn
 
-## Learn More
+```
+To make the login and add pokémons functionality in the user's pokédex, firebase was used as a database.
+For this reason, it is necessary that in the **src\config\firebase.ts** folder you fill in your firebase account information.
+After that you can start the project normally:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+# Iniciando localmente
+$ yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## 💻 Technology Stack <a name = "tech_stack"></a>
+
+- [API](https://pokeapi.co/api/v2/) - Api
+- [React](https://reactjs.org/) - Web Framework
+- [Styled-Components](https://styled-components.com/) - CSS in JS
+- [Typescript](https://nodejs.org/en/) - Programming Language
+- [Firebase](https://firebase.google.com/docs?hl=pt-br) - Database
+
+
+
