@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+interface IStylesProps {
+  color?: string;
+  text?: string;
+}
+
 export const Container = styled.table`
   width: 100%;
   padding: 1rem 1.25rem;
@@ -77,10 +82,57 @@ export const Container = styled.table`
         width: 90%;
       }
     }
+
+    p:first-child:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    width: 95%;
+    margin: 0 auto;
+
+    thead tr {
+      display: grid;
+      grid-template-columns: 5.7rem 15rem 1fr 7rem;
+    }
+    tbody {
+      tr {
+        grid-template-columns: 5.7rem 12rem 1fr 6rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    width: 80%;
+    padding: 1rem 0;
+    margin: 0 auto;
+    thead tr {
+      display: grid;
+      grid-template-columns: 5.7rem 12rem 1fr 7rem;
+    }
+    tbody {
+      tr {
+        grid-template-columns: 5.7rem 8rem 1fr 6rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 280px) {
+    width: 70%;
+    padding: 1rem 0;
+    margin: 0 auto;
+    thead tr {
+      display: grid;
+      grid-template-columns: 5.7rem 10rem 1fr 9rem;
+    }
+    tbody {
+      tr {
+        grid-template-columns: 5.7rem 6rem 1fr 6rem;
+      }
+    }
   }
 `;
 
-export const Type = styled.span`
+export const Type = styled.span<IStylesProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +140,6 @@ export const Type = styled.span`
   max-width: 100%;
   width: 4.3rem;
   height: 1.8rem;
-  background-color: #f25d52;
   text-align: center;
   padding: 6px 0.5rem;
   border-radius: 0.3rem;
@@ -96,4 +147,7 @@ export const Type = styled.span`
   color: #fff;
   font-weight: normal;
   letter-spacing: 0.1rem;
+
+  background-color: ${({ color }) => color};
+  color: ${({ text }) => text};
 `;

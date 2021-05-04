@@ -25,17 +25,19 @@ const MyPokemons = () => {
         </tr>
       </thead>
       <tbody>
-        {myPokemons.map(({ idPokemon, img, name, type }) => (
+        {myPokemons.map(({ name, idPokemon, img, types }) => (
           <tr key={idPokemon}>
             <td>
               <div>
                 <img src={img} alt="" />
               </div>
             </td>
-            <td>{name.charAt(0).toUpperCase() + name.slice(1)}</td>
             <td>
-              <Styles.Type>
-                {type.charAt(0).toUpperCase() + type.slice(1)}
+              <p>{name}</p>
+            </td>
+            <td>
+              <Styles.Type color={types.color} text={types.text}>
+                {types.name}
               </Styles.Type>
             </td>
             <td>

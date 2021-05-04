@@ -9,7 +9,7 @@ export const Container = styled.div<IContainerModalProps>`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 6;
+  z-index: 8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,6 +66,11 @@ export const Wrapper = styled.div`
     &:hover {
       background-color: #18903f;
     }
+  }
+
+  @media only screen and (max-width: 850px) {
+    width: 90%;
+    height: 60vh;
   }
 `;
 

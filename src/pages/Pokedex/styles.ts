@@ -17,6 +17,9 @@ export const Content = styled.section`
     font-weight: 500;
     color: #535662;
   }
+  @media only screen and (max-width: 850px) {
+    max-width: 55rem;
+  }
 `;
 
 export const Container = styled.div`

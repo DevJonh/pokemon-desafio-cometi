@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 
 interface IStylesProps {
   gallery: boolean;
+  color?: string;
+  text?: string;
 }
 
 export const Container = styled.section`
@@ -13,6 +15,10 @@ export const Container = styled.section`
   column-gap: 1.5rem;
   row-gap: 3.75rem;
   justify-content: center;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const ContainerImage = styled.div`
@@ -60,6 +66,22 @@ export const ContainerImage = styled.div`
       visibility: visible;
     }
   }
+  @media only screen and (max-width: 450px) {
+    width: 12.5rem;
+
+    p {
+      left: 1.7rem;
+    }
+  }
+  @media only screen and (max-width: 280px) {
+    width: 11rem;
+    img {
+      width: 100%;
+    }
+    p {
+      left: 0.7rem;
+    }
+  }
 `;
 
 export const Index = styled.span<IStylesProps>`
@@ -97,7 +119,6 @@ export const Type = styled.span<IStylesProps>`
   max-width: 100%;
   width: 4rem;
   height: 1.5rem;
-  background-color: #f25d52;
   text-align: center;
   padding: 6px 0.5rem;
   border: 1px solid #000;
@@ -108,6 +129,9 @@ export const Type = styled.span<IStylesProps>`
   top: -0.9rem;
   right: 2rem;
 
+  background-color: ${({ color }) => color};
+  color: ${({ text }) => text};
+
   ${({ gallery }) =>
     gallery &&
     css`
@@ -115,7 +139,7 @@ export const Type = styled.span<IStylesProps>`
       bottom: 0.5rem;
       right: 6rem;
       z-index: 3;
-    `}
+    `};
 `;
 
 export const Details = styled.div`

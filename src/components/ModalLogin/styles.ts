@@ -64,6 +64,11 @@ export const Wrapper = styled.div`
   img {
     width: 70%;
   }
+
+  @media only screen and (max-width: 850px) {
+    width: 70%;
+    height: 60vh;
+  }
 `;
 
 export const Form = styled.form`
@@ -127,6 +132,19 @@ export const Form = styled.form`
     transition: 0.3s;
     &:hover {
       background-color: #18903f;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    div {
+      height: 3.5rem;
+      input {
+        height: 3.5rem;
+      }
+    }
+
+    button {
+      height: 3.5rem;
     }
   }
 `;

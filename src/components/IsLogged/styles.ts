@@ -25,6 +25,16 @@ export const BtnLogin = styled.button`
   &:hover {
     background-color: #b4adbe;
   }
+
+  @media only screen and (max-width: 450px) {
+    grid-area: login;
+    margin: 0 0 0 auto;
+  }
+  @media only screen and (max-width: 280px) {
+    margin: 1rem auto;
+    width: 8rem;
+    height: 3rem;
+  }
 `;
 
 export const User = styled.div<IMenuProps>`
@@ -85,5 +95,9 @@ export const User = styled.div<IMenuProps>`
         margin-left: 0.3rem;
       }
     }
+  }
+
+  @media only screen and (max-width: 450px) {
+    grid-area: login;
   }
 `;

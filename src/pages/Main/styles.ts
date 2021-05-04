@@ -9,4 +9,8 @@ export const Content = styled.section`
   border-radius: 0 0 12px 12px;
   padding-bottom: 14rem;
   margin: 0 auto;
+
+  @media only screen and (max-width: 850px) {
+    max-width: 55rem;
+  }
 `;

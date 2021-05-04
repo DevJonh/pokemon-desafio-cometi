@@ -14,11 +14,11 @@ const Header = () => {
       <ModalLogin />
       <Styles.Container>
         <Link to="/">
-          <img src={logo} alt="" />
+          <img className="logo1" src={logo} alt="" />
         </Link>
         <Search />
         <IsLogged />
-        <img src={logoCometi} alt="" />
+        <img className="logo2" src={logoCometi} alt="" />
       </Styles.Container>
     </>
   );

@@ -23,7 +23,9 @@ const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 const AuthProvider: React.FC<any> = ({ children }) => {
   const [openModalLogin, setOpenModalLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [myPokemons, setMyPokemons] = useState<Array<IMyPokemons>>([]);
+  const [myPokemons, setMyPokemons] = useState<Array<IMyPokemons>>(
+    [] as IMyPokemons[]
+  );
   const [islogged, setIslogged] = useState(false);
   const [userLogged, setUserLogged] = useState(() =>
     localStorage.getItem("@pokemon:user")
@@ -152,10 +154,15 @@ const AuthProvider: React.FC<any> = ({ children }) => {
     }
     setIsLoading(false);
 
-    setMyPokemons(data);
+    if (data.length > 0) {
+      setMyPokemons(data);
+    }
   };
 
-  const AddPokemon = (element: IPokemon[] | IPokemonDetails, id: number) => {
+  const AddPokemon = async (
+    element: IPokemon[] | IPokemonDetails,
+    id: number
+  ) => {
     setIsLoading(true);
 
     if (Array.isArray(element)) {
@@ -164,14 +171,18 @@ const AuthProvider: React.FC<any> = ({ children }) => {
       const email = localStorage.getItem("@pokemon:email");
 
       if (email) {
-        firebase
+        await firebase
           .firestore()
           .collection("pokedex")
           .add({
             idPokemon: pokemon[0].id,
             name: pokemon[0].name,
             img: pokemon[0].sprites.front_default,
-            type: pokemon[0].types[0].type.name,
+            types: {
+              name: pokemon[0].types[0].type.name,
+              color: pokemon[0].types[0].color,
+              text: pokemon[0].types[0].text,
+            },
             added: new Date(),
             user: email,
           })

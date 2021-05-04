@@ -35,7 +35,11 @@ const CardPokemon = () => {
           <Styles.Index gallery={false}>
             <span>{pokemonsSearch.id}</span>
           </Styles.Index>
-          <Styles.Type gallery={false}>
+          <Styles.Type
+            color={pokemonsSearch.types[0].color}
+            text={pokemonsSearch.types[0].text}
+            gallery={false}
+          >
             {search === "Selecione o tipo"
               ? pokemonsSearch.types[0].type.name.charAt(0).toUpperCase() +
                 pokemonsSearch.types[0].type.name.slice(1)
@@ -65,7 +69,11 @@ const CardPokemon = () => {
             <Styles.Index gallery={false}>
               <span>{id}</span>
             </Styles.Index>
-            <Styles.Type gallery={false}>
+            <Styles.Type
+              color={types[0].color}
+              text={types[0].text}
+              gallery={false}
+            >
               {search === "Selecione o tipo"
                 ? types[0].type.name.charAt(0).toUpperCase() +
                   types[0].type.name.slice(1)

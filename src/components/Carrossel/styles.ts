@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
+interface IStylesProps {
+  color?: string;
+  text?: string;
+}
+
 export const Container = styled.div`
+  position: relative;
   max-width: 95%;
   border-radius: 3px;
   margin: 5rem auto 7rem;
@@ -10,6 +16,9 @@ export const Container = styled.div`
   column-gap: 1.5rem;
   row-gap: 3.75rem;
   justify-content: center;
+  @media only screen and (max-width: 850px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const ContainerImage = styled.div`
@@ -61,6 +70,32 @@ export const ContainerImage = styled.div`
       visibility: visible;
     }
   }
+  @media only screen and (max-width: 850px) {
+    width: 14rem;
+
+    &:nth-last-child(2),
+    &:nth-last-child(3) {
+      margin-top: 6rem;
+    }
+    p {
+      left: 18%;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    &:nth-last-child(2),
+    &:nth-last-child(3),
+    &:nth-last-child(4) {
+      margin-top: 6rem;
+    }
+  }
+  @media only screen and (max-width: 280px) {
+    &:nth-last-child(2),
+    &:nth-last-child(3),
+    &:nth-last-child(4),
+    &:nth-last-child(5) {
+      margin-top: 6rem;
+    }
+  }
 `;
 
 export const Index = styled.span`
@@ -84,15 +119,13 @@ export const Index = styled.span`
   left: 40%;
 `;
 
-export const Type = styled.span`
+export const Type = styled.span<IStylesProps>`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  max-width: max-content;
-  width: 3.7rem;
+  width: 4rem;
   height: 1.5rem;
-  background-color: #f25d52;
   text-align: center;
   padding: 6px auto;
   border: 1px solid #000;
@@ -104,8 +137,16 @@ export const Type = styled.span`
   right: 35%;
   z-index: 5;
 
+  background-color: ${({ color }) => color};
+  color: ${({ text }) => text};
+
   &::first-letter {
     text-transform: uppercase;
+  }
+
+  @media only screen and (max-width: 850px) {
+    right: 32%;
+    bottom: 0.9rem;
   }
 `;
 
@@ -131,6 +172,27 @@ export const Icon = styled.button`
     cursor: initial;
     &:hover {
       filter: brightness(100%);
+    }
+  }
+  @media only screen and (max-width: 850px) {
+    position: absolute;
+    &.left {
+      left: -0.5rem;
+      bottom: 50%;
+    }
+    &.right {
+      right: -0.5rem;
+      bottom: 50%;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    &.left {
+      left: -0.5rem;
+      bottom: 50%;
+    }
+    &.right {
+      right: -0.5rem;
+      bottom: 50%;
     }
   }
 `;

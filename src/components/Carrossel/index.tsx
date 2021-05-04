@@ -39,6 +39,7 @@ const Carrossel = () => {
         <Styles.Icon
           onClick={() => (page - 1 !== 0 ? setPage(page - 1) : setPage(page))}
           disabled={page - 1 === 0 ? true : false}
+          className="left"
         >
           <MdKeyboardArrowLeft size={"1.5rem"} />
         </Styles.Icon>
@@ -56,7 +57,7 @@ const Carrossel = () => {
             <Styles.Index>
               <span>{item.id}</span>
             </Styles.Index>
-            <Styles.Type>
+            <Styles.Type color={item.types[0].color} text={item.types[0].text}>
               {item.types[0].type.name.charAt(0).toUpperCase() +
                 item.types[0].type.name.slice(1)}
             </Styles.Type>
@@ -71,6 +72,7 @@ const Carrossel = () => {
               : setPage(page)
           }
           disabled={page + 1 === itemsExibir.totalPage ? true : false}
+          className="right"
         >
           <MdKeyboardArrowRight size={"1.5rem"} />
         </Styles.Icon>

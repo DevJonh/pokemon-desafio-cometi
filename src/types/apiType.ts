@@ -15,6 +15,8 @@ export interface IPokemon {
     type: {
       name: string;
     };
+    color: string;
+    text: string;
   }[];
 }
 
@@ -31,7 +33,7 @@ export interface IPokemonDetails {
   name: string;
   height: number;
   weight: number;
-  types: { type: { name: string } }[];
+  types: { type: { name: string }; color: string; text: string }[];
   species: { name: string };
   stats: { base_stat: number; stat: { name: string } }[];
   abilities: {
@@ -48,5 +50,9 @@ export interface IMyPokemons {
   name: string;
   idPokemon: number;
   img: string;
-  type: string;
+  types: {
+    name: string;
+    color: string;
+    text: string;
+  };
 }

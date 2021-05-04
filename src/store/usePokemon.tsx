@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 import axios from "../services/axios";
 import { IPokemon, IPokemonDetails, IResultPokemon } from "../types/apiType";
+import colors from "../utils/pokemonColors";
 
 interface IPokemonContext {
   pokemonSearch: string;
@@ -65,6 +66,27 @@ const PokemonProvider: React.FC<any> = ({ children }) => {
         .get(pok.url)
         .then<IPokemon>(({ data }) => data);
 
+      colors.forEach((color, i) => {
+        if (searchActual !== "Selecione o tipo") {
+          if (color.type === searchActual) {
+            types.forEach(({ type }, index) => {
+              if (searchActual === type.name) {
+                types[0].type.name = searchActual;
+                types[0].color = colors[i].color;
+                types[0].text = colors[i].text;
+              }
+            });
+          }
+        } else {
+          types.forEach(({ type }, index) => {
+            if (color.type === type.name) {
+              types[0].color = colors[i].color;
+              types[0].text = colors[i].text;
+            }
+          });
+        }
+      });
+
       dataTemp.push({ id, name, sprites, types });
 
       if (pokemon.length === i + 1) {
@@ -83,6 +105,13 @@ const PokemonProvider: React.FC<any> = ({ children }) => {
         .get(pok.url)
         .then<IPokemon>(({ data }) => data);
 
+      colors.forEach((color, i) => {
+        if (color.type === types[0].type.name) {
+          types[0].color = colors[i].color;
+          types[0].text = colors[i].text;
+        }
+      });
+
       dataTemp.push({ id, name, sprites, types });
 
       if (pokemonGallery.length === i + 1) {
@@ -98,6 +127,13 @@ const PokemonProvider: React.FC<any> = ({ children }) => {
     const data: IPokemonDetails = await axios
       .get(`/pokemon/${id}`)
       .then((res) => res.data);
+
+    colors.forEach((color, i) => {
+      if (color.type === data.types[0].type.name) {
+        data.types[0].color = colors[i].color;
+        data.types[0].text = colors[i].text;
+      }
+    });
 
     const {
       abilities,
